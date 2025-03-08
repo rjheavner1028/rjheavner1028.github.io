@@ -1,3 +1,8 @@
+-- ============================================================
+-- Fully functional Database for Sales and Returns
+-- ============================================================
+
+
 -- Drop existing tables to avoid conflicts
 DROP TABLE IF EXISTS returns CASCADE;
 DROP TABLE IF EXISTS sales CASCADE;
