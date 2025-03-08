@@ -1,3 +1,44 @@
+ /*
+Driver.java:
+* Acts as the main program that manages user input
+* Allows adding new dogs and monkeys, reserves animals
+* Prints animal records. 
+* It includes a menu system to interact with the user and handles the lists of rescue animals.
+ */
+
+/*
+ * IMPROVEMENT NOTES:
+ * ----------------------------------------------------------------------------
+ * 1. No proper error handling:
+ *    - There is no catching exceptions that may occur from invalid user input.
+ *      For example, reading a boolean or numeric value without validation might
+ *      throw an exception.
+ *    - Improvement: Wrap input operations with try-catch blocks.
+ *
+ * 2. Lack of input validation:
+ *    - There is no check to verify that the inputs (like age, weight, or reserved)
+ *      are of the expected format or within an acceptable range.
+ *    - Consider using methods to validate that numbers are actually numeric before
+ *      assignment.
+ *
+ * 3. Repetitive logic:
+ *    - Similar code exists in both intakeNewDog and intakeNewMonkey methods.
+ *      Need to input collection into helper methods would reduce redundancy.
+ *
+ * 4. Planned Enhancements in Python:
+ *    - Error Handling & Input Validation: Implement try-except blocks.
+ *    - Use descriptive variable and function names to improve readability.
+ *    - Need to add clear comments for maintainability.
+ *
+ * 5. Potential Issue:
+ *    - In the reserveAnimal() method, the code references an undefined variable
+ *      'animalList'. Consider combining dogList and monkeyList or ensuring that
+ *      'animalList' is properly declared.
+ * ----------------------------------------------------------------------------
+ */
+ 
+
+
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.InputMismatchException;
