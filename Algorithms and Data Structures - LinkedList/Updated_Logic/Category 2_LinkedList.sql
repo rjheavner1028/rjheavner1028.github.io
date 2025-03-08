@@ -57,7 +57,7 @@ CREATE TABLE eBid_Monthly_Sales_Staging (
 );
 
 -- ============================================================
--- Create a function to import CSV data.
+-- Create a function to import CSV data that can be used after the initial import if desired to import more data
 -- This function:
 --  1. Clears the staging table.
 --  2. Copies the CSV data into the staging table.
@@ -107,6 +107,9 @@ BEGIN
         $f$,
         file_path
     );
+	
+	--Exmaple of having this process be automated after the initial import
+	-- SELECT import_auction_data_csv('C:\Program Files\PostgreSQL\17\data\eBid_Monthly_Sales.csv');             --Commenting this out as this is only needed after the initial import of data to import more data
     
     -- Insert data from the staging table into the final table,
     -- converting the Excel serial date (close_date_xl) to a proper DATE.
@@ -193,7 +196,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- ============================================================
--- Import Data - Update File Path as needed || File path must be within \\PostgreSQL\17\data\ for PG to accept file
+-- Import Initial/Starter Data - Update File Path as needed || File path must be within \\PostgreSQL\17\data\ for PG to accept file
 -- ============================================================
 COPY eBid_Monthly_Sales_Staging (
     auction_title,
@@ -270,6 +273,8 @@ SELECT
     fund,
     business_unit
 FROM eBid_Monthly_Sales_Staging;
+
+
 
 
 
