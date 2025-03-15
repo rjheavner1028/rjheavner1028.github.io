@@ -1,12 +1,24 @@
 # ================================================
-#464 lines of code Java 413 lines of code with improvment and tons of comments
+#Robert Heavner
+#SNHU Capstone
 # ================================================
 
 # ================================================
 # Rescue Animal System
-# This logic manages the intake and tracking of rescue animals (dogs, cats, monkeys)
-# with functionalities for data entry, validation, and reporting.
+#
+# 1. Import modules for system functions and date handling.
+# 2. Define global lists for dogs, cats, and monkeys.
+# 3. Create classes for a general rescue animal and specific types (Dog, Cat, Monkey).
+# 4. Provide helper functions to validate user input (options, dates, yes/no).
+# 5. Implement functions for animal intake and initializing sample data.
+# 6. Include reporting functions to display animal information and training progress.
+# 7. Add functionalities for reserving animals and updating their training status.
+# 8. Present a main menu for user interaction and start the program.
+#
+# This system tracks rescue animals with simple data entry, validation, reporting,
+# reservation, and training status updates.
 # ================================================
+
 
 import sys  # For system-level functions like exiting the application
 import re  # Used in date validation
@@ -264,21 +276,41 @@ def initialize_data():
 # =============================================================================
 # Reporting Functions: Print Animal Data
 # =============================================================================
+
+# ------------------
+# Training Status
+# ------------------
 def print_training_status():
-    """Prints the training status of all animals grouped by type.
-    
-    Displays a categorized list of animals along with their current training status.
-    """
+    """Prints the training status of all animals grouped by type with a visual progress bar."""
     print("\n--- Training Status for All Animals ---")
     if not dogs and not cats and not monkeys:
         print("No animals in the system.")
         return
 
+    # Define the ordered training stages and parameters for the progress bar
+    stages = training_statuses  # e.g., ["Intake/Check-in", "In-Training", "Final Stage", "Completed"]
+    total_stages = len(stages)
+    bar_width = 20  # Width of the progress bar in characters
+
+    def get_progress_bar(status):
+        # Determine the stage index; if status not found, assume starting stage
+        try:
+            current_index = stages.index(status)
+        except ValueError:
+            current_index = 0
+        # Calculate progress as percentage based on stage position
+        progress = int(((current_index + 1) / total_stages) * 100)
+        # Calculate the number of filled segments in the progress bar
+        num_filled = int((progress / 100) * bar_width)
+        bar = "[" + "#" * num_filled + "-" * (bar_width - num_filled) + "]"
+        return bar, progress
+
     # Print training status for Dogs
     print("\n🐕 Dogs:")
     if dogs:
         for dog in dogs:
-            print(f"- {dog.name}: {dog.training_status}")  # Inline: Display each dog's name and training status
+            bar, progress = get_progress_bar(dog.training_status)
+            print(f"- {dog.name}: {dog.training_status} {bar} {progress}%")
     else:
         print("No dogs available.")
 
@@ -286,7 +318,8 @@ def print_training_status():
     print("\n🐈 Cats:")
     if cats:
         for cat in cats:
-            print(f"- {cat.name}: {cat.training_status}")  # Inline: Display each cat's name and training status
+            bar, progress = get_progress_bar(cat.training_status)
+            print(f"- {cat.name}: {cat.training_status} {bar} {progress}%")
     else:
         print("No cats available.")
 
@@ -294,11 +327,15 @@ def print_training_status():
     print("\n🐒 Monkeys:")
     if monkeys:
         for monkey in monkeys:
-            print(f"- {monkey.name}: {monkey.training_status}")  # Inline: Display each monkey's name and training status
+            bar, progress = get_progress_bar(monkey.training_status)
+            print(f"- {monkey.name}: {monkey.training_status} {bar} {progress}%")
     else:
         print("No monkeys available.")
     print()  # Extra newline for spacing
 
+# ------------------
+# All Animals
+# ------------------
 def print_all_animals():
     """Prints all animals in the system with their details."""
     print("\n--- All Animals in the System ---")
@@ -310,6 +347,9 @@ def print_all_animals():
         print(animal)  # Uses the __str__ method of each animal for formatting
     print()
 
+# ------------------
+# All Dogs
+# ------------------
 def print_list_of_dogs():
     """Prints a list of all dogs."""
     print("\n--- List of Dogs ---")
@@ -320,6 +360,9 @@ def print_list_of_dogs():
             print(dog)  # Display each dog's details
     print()
 
+# ------------------
+# All Cats
+# ------------------
 def print_list_of_cats():
     """Prints a list of all cats."""
     print("\n--- List of Cats ---")
@@ -330,6 +373,9 @@ def print_list_of_cats():
             print(cat)  # Display each cat's details
     print()
 
+# ------------------
+# All monkeys
+# ------------------
 def print_list_of_monkeys():
     """Prints a list of all monkeys."""
     print("\n--- List of Monkeys ---")
@@ -340,6 +386,9 @@ def print_list_of_monkeys():
             print(monkey)  # Display each monkey's details
     print()
 
+# ------------------
+# All Avl Animals
+# ------------------
 def print_list_of_available_animals():
     """Prints animals that are available for service (i.e., training completed and not reserved)."""
     print("\n--- List of Available Animals ---")
@@ -354,13 +403,77 @@ def print_list_of_available_animals():
     print()
 
 # =============================================================================
+# Update Training Status Functionality
+# =============================================================================
+def update_animal_training_status():
+    """Allows the user to update the training status of an animal by name."""
+    animal_name = input("Enter the name of the animal to update training status: ").strip()
+    found = False
+    for animal in dogs + cats + monkeys:
+        if animal.name.lower() == animal_name.lower():
+            found = True
+            print(f"Current training status of {animal.name}: {animal.training_status}")
+            new_status = get_valid_input("Select new training status:", training_statuses)
+            animal.update_training_status(new_status)
+            print(f"Training status for {animal.name} updated to {new_status}.")
+            break
+    if not found:
+        print("Animal not found in the system.")
+
+# =============================================================================
+# Reservation Functionality
+# =============================================================================
+def reserve_animal():
+    """Allows the user to reserve an animal by specifying type and in-service country."""
+    animal_type_input = input("Enter animal type to reserve (Dog/Cat/Monkey): ").strip().title()
+    in_service_country_input = input("Enter in-service country: ").strip().title()
+
+    available_animals = []
+
+    if animal_type_input == "Dog":
+        for dog in dogs:
+            if dog.in_service_country.title() == in_service_country_input and not dog.reserved:
+                available_animals.append(dog)
+    elif animal_type_input == "Cat":
+        for cat in cats:
+            if cat.in_service_country.title() == in_service_country_input and not cat.reserved:
+                available_animals.append(cat)
+    elif animal_type_input == "Monkey":
+        species_input = input("Enter the species of monkey to reserve: ").strip().title()
+        for monkey in monkeys:
+            if (monkey.in_service_country.title() == in_service_country_input and
+                monkey.species.title() == species_input and not monkey.reserved):
+                available_animals.append(monkey)
+    else:
+        print("Invalid animal type.")
+        return
+
+    if not available_animals:
+        print("No available animals found for the given criteria.")
+        return
+
+    print("\nAvailable animals:")
+    for animal in available_animals:
+        print(animal)
+
+    name_input = input("Enter the name of the animal to reserve: ").strip()
+    for animal in available_animals:
+        if animal.name.lower() == name_input.lower():
+            animal.reserved = True
+            print("Reservation confirmed.")
+            return
+
+    print("Invalid animal name. Reservation not made.")
+
+# =============================================================================
 # Main Menu Functionality
 # =============================================================================
 def display_menu():
     """Displays the main menu and handles user input to navigate the system.
-    
+
     Calls the data initialization function and presents menu options
-    for various functionalities like intake, listing, and status reports.
+    for various functionalities like intake, listing, reporting, reservation,
+    and updating training status.
     """
     initialize_data()  # Load sample data into the system
 
@@ -376,9 +489,11 @@ def display_menu():
         print("[7] Print list of available animals")
         print("[8] Print Training Status for All Animals")
         print("[9] Print All Animals")
+        print("[10] Reserve an animal")
+        print("[11] Update an animal's training status")
         print("[q] Quit")
 
-        choice = input("Enter your choice: ").strip().lower()  # Get user's menu selection
+        choice = input("Enter your choice: ").strip().lower()
         # Execute functionality based on user's menu choice
         if choice == "1":
             intake_new_animal("Dog")
@@ -398,9 +513,13 @@ def display_menu():
             print_training_status()
         elif choice == "9":
             print_all_animals()
+        elif choice == "10":
+            reserve_animal()
+        elif choice == "11":
+            update_animal_training_status()
         elif choice == "q":
             print("Exiting the application...")
-            sys.exit()  # Terminate the application
+            sys.exit()
         else:
             print("Invalid choice. Please try again.")
 
