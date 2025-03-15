@@ -108,9 +108,12 @@ BEGIN
         file_path
     );
 	
+-- ============================================================
 	--Exmaple of having this process be automated after the initial import
 	-- SELECT import_auction_data_csv('C:\Program Files\PostgreSQL\17\data\eBid_Monthly_Sales.csv');             --Commenting this out as this is only needed after the initial import of data to import more data
-    
+-- ============================================================
+   
+   
     -- Insert data from the staging table into the final table,
     -- converting the Excel serial date (close_date_xl) to a proper DATE.
     -- For Excel's 1900 date system, the conversion is:
