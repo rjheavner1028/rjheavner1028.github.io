@@ -1,1 +1,78 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capstone Project - SNHU</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Capstone Project - SNHU</h1>
+        <p>Enhancing Software Engineering and Database Optimization</p>
+    </header>
+    
+    <section id="introduction">
+        <h2>Self-Introduction</h2>
+        <p><strong>Background:</strong> Transferred from community college, now completing a CS degree at SNHU.</p>
+        <p><strong>Key Skills Learned:</strong></p>
+        <ul>
+            <li>Database Layout & SQL</li>
+            <li>AI Training Fundamentals</li>
+            <li>Software Development Best Practices</li>
+        </ul>
+    </section>
+    
+    <section id="enhancements">
+        <h2>Enhancement Plan</h2>
+        <h3>1. Porting Java to Python - Rescue Animal Management System</h3>
+        <p>Refactoring Java code to Python for improved readability, error handling, and maintainability.</p>
+        <h4>Pseudocode:</h4>
+        <pre>
+        function mainEnhancementProcess():
+            analyzeExistingJavaCode()
+            pythonCode = portJavaToPython(javaCode)
+            pythonCode = addErrorHandling(pythonCode)
+            pythonCode = integrateMonitoringFeature(pythonCode)
+        </pre>
+    </section>
+    
+    <section id="database">
+        <h3>2. Database Optimization - Migrating Linked List to SQL</h3>
+        <p>Transforming CPP logic into a structured SQL database for scalability and efficiency.</p>
+        <h4>SQL Tables:</h4>
+        <pre>
+        CREATE TABLE Auction (
+            auction_id INT PRIMARY KEY,
+            auction_title VARCHAR(255),
+            close_date DATE
+        );
+        CREATE TABLE Bid (
+            bid_id INT PRIMARY KEY,
+            auction_id INT,
+            winning_bid DECIMAL(10,2)
+        );
+        </pre>
+    </section>
+    
+    <section id="final-database">
+        <h3>3. Creating a Fully Functional Database</h3>
+        <p>Designing a database with procedures and functions for return rate analysis.</p>
+        <h4>Stored Procedure Example:</h4>
+        <pre>
+        CREATE PROCEDURE InsertAuctionBid(
+            IN auction_id INT,
+            IN auction_title VARCHAR(255)
+        )
+        BEGIN
+            INSERT INTO Auction (auction_id, auction_title)
+            VALUES (auction_id, auction_title);
+        END;
+        </pre>
+    </section>
+    
+    <footer>
+        <p>Project Repository: <a href="https://rjheavner1028.github.io/" target="_blank">GitHub Pages</a></p>
+    </footer>
+</body>
+</html>
