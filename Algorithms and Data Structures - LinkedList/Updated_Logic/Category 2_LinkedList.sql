@@ -1,9 +1,11 @@
 -- ============================================================
 -- Create the database (Most of the time you will already have your Database, this is just used as an exmaple for the assignment)
--- CREATE DATABASE eBid_Database;
 -- ============================================================
+-- CREATE DATABASE eBid_Database;
 
+-- ============================================================
 -- Drop the table if it exists, then create it.
+-- ============================================================
 DROP TABLE IF EXISTS eBid_Monthly_Sales;
 CREATE TABLE eBid_Monthly_Sales (
     auction_title         TEXT,
@@ -29,9 +31,12 @@ CREATE TABLE eBid_Monthly_Sales (
     business_unit         INTEGER
 );
 
+
+
 -- ============================================================
 -- Create a staging table for CSV import.
 -- The staging table uses an integer column (close_date_xl) to store the Excel serial date.
+-- ============================================================
 DROP TABLE IF EXISTS eBid_Monthly_Sales_Staging;
 CREATE TABLE eBid_Monthly_Sales_Staging (
     auction_title         TEXT,
@@ -56,6 +61,8 @@ CREATE TABLE eBid_Monthly_Sales_Staging (
     business_unit         INTEGER
 );
 
+
+
 -- ============================================================
 -- Create a function to import CSV data that can be used after the initial import if desired to import more data
 -- This function:
@@ -64,7 +71,7 @@ CREATE TABLE eBid_Monthly_Sales_Staging (
 --  3. Inserts data into the final table converting the Excel serial date.
 --
 -- Note: Adjust the conversion formula if the Excel uses the 1904 date system like this one does
-
+-- ============================================================
 CREATE OR REPLACE FUNCTION import_auction_data_csv(file_path TEXT)
 RETURNS VOID AS
 $$
@@ -107,17 +114,23 @@ BEGIN
         $f$,
         file_path
     );
-	
+
+
+
+
 -- ============================================================
 	--Exmaple of having this process be automated after the initial import
-	-- SELECT import_auction_data_csv('C:\Program Files\PostgreSQL\17\data\eBid_Monthly_Sales.csv');             --Commenting this out as this is only needed after the initial import of data to import more data
 -- ============================================================
-   
-   
+	-- SELECT import_auction_data_csv('C:\Program Files\PostgreSQL\17\data\eBid_Monthly_Sales.csv');             --Commenting this out as this is only needed after the initial import of data to import more data
+	
+	
+	
+-- ============================================================
     -- Insert data from the staging table into the final table,
     -- converting the Excel serial date (close_date_xl) to a proper DATE.
     -- For Excel's 1900 date system, the conversion is:
     --   DATE '1900-01-01' + (excel_serial - 2)
+-- ============================================================
     INSERT INTO eBid_Monthly_Sales (
         auction_title,
         auction_id,
@@ -165,6 +178,8 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+
+
 -- ============================================================
 -- Create a function to print all data from the final table.
 -- ============================================================
@@ -198,6 +213,8 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+
+
 -- ============================================================
 -- Import Initial/Starter Data - Update File Path as needed || File path must be within \\PostgreSQL\17\data\ for PG to accept file
 -- ============================================================
@@ -225,6 +242,7 @@ COPY eBid_Monthly_Sales_Staging (
 )
 FROM 'C:\Program Files\PostgreSQL\17\data\eBid_Monthly_Sales.csv'
 WITH (FORMAT CSV, HEADER, DELIMITER ',');
+
 
 
 -- ============================================================
