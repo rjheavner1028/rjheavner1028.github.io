@@ -1,146 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Capstone Project for SNHU CS degree showcasing enhancements in Software Engineering, Algorithms, and Databases.">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Capstone Project for SNHU CS degree showcasing enhancements in Software Engineering, Algorithms, and Databases." />
   <title>Capstone Project - SNHU</title>
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      padding-top: 70px;
+    }
+    footer {
+      background-color: #f8f9fa;
+      padding: 2rem 0;
+    }
+    .artifact h5 {
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <div class="header-container">
-      <h1>Capstone Project - SNHU</h1>
-      <p>Enhancing Software Engineering and Database Optimization</p>
+  <!-- NAVIGATION BAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Capstone Project</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="#introduction">Self-Introduction</a></li>
+          <li class="nav-item"><a class="nav-link" href="#enhancements">Enhancement Plan</a></li>
+          <li class="nav-item"><a class="nav-link" href="#self-assessment">Assessment</a></li>
+          <li class="nav-item"><a class="nav-link" href="#resources">Resources</a></li>
+        </ul>
+      </div>
     </div>
-    <nav>
-      <ul>
-        <li><a href="#introduction">Self-Introduction</a></li>
-        <li><a href="#enhancements">Enhancement Plan</a></li>
-        <li><a href="#resources">Project Resources</a></li>
-      </ul>
-    </nav>
-  </header>
+  </nav>
 
-  <main>
-    <section id="introduction">
+  <main class="container">
+    <!-- INTRO -->
+    <section id="introduction" class="mb-5">
       <h2>Self-Introduction</h2>
-      <p><strong>My LinkedIn Page:</strong> <a href="https://www.linkedin.com/in/robertjheavner">LinkedIn</a></p>
-      <p><strong>Background:</strong> I have been part of SNHU’s Computer Science program for almost two years, having transferred from a local community college where I earned an Associate Degree in BA before 
-        pursuing my Bachelor’s in CS. During my time at SNHU, I have gained critical skills that include designing robust database layouts and mastering SQL, understanding the fundamentals of AI training—including 
-        how to “train” AI with data for real-world applications—and developing a solid grasp of coding fundamentals across multiple languages. These experiences have not only broadened my technical expertise but also 
-        taught me the importance of being resourceful and adaptable in the ever-evolving tech landscape. My focus on database design and optimization is a deliberate effort to showcase my ability to create efficient, 
-        scalable, and high-performing systems—a skill set that is integral to my role on the database team and as a performance engineer at my current software company. By enhancing my projects with optimized database 
-        structures, I aim to demonstrate how thoughtful design can elevate both the user interface and overall product performance. This specialization directly aligns with my career aspirations to advance into leadership 
-        roles in database architecture and system performance, positioning me to make significant contributions in the areas of query optimization, system scalability, and performance engineering.</p>
-      <p><strong>Key Skills Learned:</strong></p>
+      <p><strong>My LinkedIn:</strong> <a href="https://www.linkedin.com/in/robertjheavner" target="_blank">Robert Heavner</a></p>
+      <p>I’ve been part of SNHU’s Computer Science program for nearly two years. With a prior associate degree in Business Administration, I’ve since developed critical skills in database design, SQL, AI training fundamentals, and software development across multiple languages. I now work on a database team focused on performance engineering and backend architecture.</p>
       <ul>
-        <li>Database Layout & SQL</li>
-        <li>AI Training Fundamentals</li>
-        <li>Software Development Best Practices</li>
+        <li>📌 Robust Database Layout & SQL</li>
+        <li>📌 AI Training & Data Preparation</li>
+        <li>📌 Full-Stack Software Development</li>
       </ul>
     </section>
 
-    <section id="enhancements">
+    <!-- ENHANCEMENTS -->
+    <section id="enhancements" class="mb-5">
       <h2>Enhancement Plan</h2>
+      <div class="row row-cols-1 row-cols-md-2 g-4">
+        <!-- Artifact 1 -->
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-body artifact">
+              <h5 class="card-title">1. Pet Project – Software Engineering</h5>
+              <p><strong>Links:</strong></p>
+              <ul>
+                <li><a href="https://github.com/rjheavner1028/.../Java_Rescue%20Animal%20System%20Starter%20Code" target="_blank">Project Folder</a></li>
+                <li><a href="https://github.com/rjheavner1028/.../Enhancement%20One%20Software%20DesignEngineering.pdf" target="_blank">PDF Enhancement</a></li>
+                <li><a href="https://github.com/rjheavner1028/.../Updated_Logic/Category%201_Pet_Project.py" target="_blank">Updated Python Logic</a></li>
+              </ul>
+              <p class="card-text">Converted Java app to Python for readability and structure improvements.</p>
+            </div>
+          </div>
+        </div>
 
-      <article class="artifact">
-        <h3>1. Software Engineering and Design - Pet Project</h3>
-        <p><strong>Folder:</strong> <a href="https://github.com/rjheavner1028/rjheavner1028.github.io/tree/3f9ce4988f83857b6c0eb10b49e7675349b13ebd/Software%20Engineering%20and%20Design%20-%20Pet%20Project/Java_Rescue%20Animal%20System%20Starter%20Code" target="_blank">Software Engineering and Design - Pet Project</a></p>
-        <p><strong>PDF Enhancement:</strong> <a href="https://github.com/rjheavner1028/rjheavner1028.github.io/blob/3f9ce4988f83857b6c0eb10b49e7675349b13ebd/Software%20Engineering%20and%20Design%20-%20Pet%20Project/Enhancement%20One%20Software%20DesignEngineering.pdf" target="_blank">PetProject_Enhancement.pdf</a></p>
-        <p><strong>Original Logic:</strong> <a href="https://github.com/rjheavner1028/rjheavner1028.github.io/tree/3f9ce4988f83857b6c0eb10b49e7675349b13ebd/Software%20Engineering%20and%20Design%20-%20Pet%20Project/Java_Rescue%20Animal%20System%20Starter%20Code" target="_blank">Java Animal System Starter Code</a></p>
-        <p><strong>Updated Logic:</strong> <a href="https://github.com/rjheavner1028/rjheavner1028.github.io/blob/3f9ce4988f83857b6c0eb10b49e7675349b13ebd/Software%20Engineering%20and%20Design%20-%20Pet%20Project/Updated_Logic/Category%201_Pet_Project.py" target="_blank">Category 1_Pet_Project.py</a></p>
-        <p><strong>Summary:</strong> Converted Java application to Python to improve clarity and structure.</p>
-      </article>
+        <!-- Artifact 2 -->
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-body artifact">
+              <h5 class="card-title">2. Algorithms – LinkedList Refactor</h5>
+              <p><strong>Links:</strong></p>
+              <ul>
+                <li><a href="https://github.com/rjheavner1028/.../LinkedList" target="_blank">Project Folder</a></li>
+                <li><a href="https://github.com/rjheavner1028/.../Enhancement%20Two%20Algorithms%20and%20Data%20Structure.pdf" target="_blank">PDF Enhancement</a></li>
+                <li><a href="https://github.com/rjheavner1028/.../Category%202_LinkedList.sql" target="_blank">Updated SQL Logic</a></li>
+              </ul>
+              <p class="card-text">Rebuilt linked list logic into a scalable SQL schema.</p>
+            </div>
+          </div>
+        </div>
 
-      <article class="artifact">
-        <h3>2. Algorithms and Data Structures - LinkedList</h3>
-        <p><strong>Folder:</strong> <a href="https://github.com/rjheavner1028/rjheavner1028.github.io/tree/297cfbc27f40afe9fc67e4928862e703b5c87bb8/Algorithms%20and%20Data%20Structures%20-%20LinkedList" target="_blank">Algorithms and Data Structures - LinkedList</a></p>
-        <p><strong>PDF Enhancement:</strong> <a href="https://github.com/rjheavner1028/rjheavner1028.github.io/blob/297cfbc27f40afe9fc67e4928862e703b5c87bb8/Algorithms%20and%20Data%20Structures%20-%20LinkedList/Enhancement%20Two%20Algorithms%20and%20Data%20Structure.pdf" target="_blank">Enhancement Two - Algorithms and Data Structure.pdf</a></p>
-        <p><strong>Original Logic:</strong> <a href="https://github.com/rjheavner1028/rjheavner1028.github.io/blob/297cfbc27f40afe9fc67e4928862e703b5c87bb8/Algorithms%20and%20Data%20Structures%20-%20LinkedList/LinkedList.sln" target="_blank">LinkedList.sln (C++ Logic)</a></p>
-        <p><strong>Updated Logic:</strong> <a href="https://github.com/rjheavner1028/rjheavner1028.github.io/blob/297cfbc27f40afe9fc67e4928862e703b5c87bb8/Algorithms%20and%20Data%20Structures%20-%20LinkedList/Updated_Logic/Category%202_LinkedList.sql" target="_blank">Category 2_LinkedList.sql</a></p>
-        <p><strong>Summary:</strong> Migrated auction logic from a C++ linked list to a scalable SQL schema for better data handling and scalability.</p>
-      </article>
+        <!-- Artifact 3 -->
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-body artifact">
+              <h5 class="card-title">3. Database – Inventory System</h5>
+              <p><strong>Links:</strong></p>
+              <ul>
+                <li><a href="https://github.com/rjheavner1028/.../Full%20Database%20Design%20and%20Setup" target="_blank">Project Folder</a></li>
+                <li><a href="https://github.com/rjheavner1028/.../Enhancement%20Three%20Databases.pdf" target="_blank">PDF Enhancement</a></li>
+                <li><a href="https://github.com/rjheavner1028/.../Category%203_Create_DB_withData.sql" target="_blank">Updated DB Logic</a></li>
+              </ul>
+              <p class="card-text">Built a PostgreSQL database with normalization, indexes, and reports.</p>
+            </div>
+          </div>
+        </div>
 
-      <article class="artifact">
-        <h3>3. Databases - Full Database Design and Setup</h3>
-        <p><strong>Folder:</strong> <a href="https://github.com/rjheavner1028/rjheavner1028.github.io/tree/297cfbc27f40afe9fc67e4928862e703b5c87bb8/Databases%20-%20Full%20Database%20Design%20and%20Setup" target="_blank">Databases - Full Database Design and Setup</a></p>
-        <p><strong>PDF Enhancement:</strong> <a href="https://github.com/rjheavner1028/rjheavner1028.github.io/blob/297cfbc27f40afe9fc67e4928862e703b5c87bb8/Databases%20-%20Full%20Database%20Design%20and%20Setup/Enhancement%20Three%20Databases.pdf" target="_blank">Enhancement Three - Databases.pdf</a></p>
-        <p><strong>Original Logic:</strong> <a href="https://github.com/rjheavner1028/rjheavner1028.github.io/blob/297cfbc27f40afe9fc67e4928862e703b5c87bb8/Databases%20-%20Full%20Database%20Design%20and%20Setup/Project%20Two%20Analysis%20and%20Summary%20-%20Heavner.pdf" target="_blank">Project Two - Analysis & Summary</a></p>
-        <p><strong>Updated Logic:</strong> <a href="https://github.com/rjheavner1028/rjheavner1028.github.io/blob/297cfbc27f40afe9fc67e4928862e703b5c87bb8/Databases%20-%20Full%20Database%20Design%20and%20Setup/Updated_Logic/Category%203_Create_DB_withData.sql" target="_blank">Category 3_Create_DB_withData.sql</a></p>
-        <p><strong>Summary:</strong> Designed a fully functional SQL database with stored procedures and populated tables for deeper return rate analysis.</p>
-      </article>
+        <!-- Artifact 4 -->
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-body artifact">
+              <h5 class="card-title">4. Video Code Review</h5>
+              <ul>
+                <li><a href="https://github.com/rjheavner1028/.../Video%20Code%20Review" target="_blank">Review Folder</a></li>
+                <li><a href="https://youtu.be/Pk0VGeP-7oE" target="_blank">Watch on YouTube</a></li>
+                <li><a href="https://github.com/rjheavner1028/.../Milestone%20One%20Script%20for%20video.pdf" target="_blank">Script PDF</a></li>
+              </ul>
+              <p class="card-text">Presented a technical walkthrough of code refactor best practices.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      <article class="artifact">
-        <h3>4. Video Code Review</h3>
-        <p><strong>Folder:</strong> <a href="https://github.com/rjheavner1028/rjheavner1028.github.io/tree/main/Video%20Code%20Review" target="_blank">Video Code Review</a></p>
-        <p><strong>PDF Outline for Video:</strong> <a href="https://github.com/rjheavner1028/rjheavner1028.github.io/blob/652336792636b9ef73a93cb8cd1a52e99133b193/Video%20Code%20Review/Milestone%20One%20Script%20for%20video.pdf" target="_blank">CodeReview_Enhancement.pdf</a></p>
-        <p>🎥 <a href="https://youtu.be/Pk0VGeP-7oE" target="_blank">Video Code Review (YouTube)</a></p>
-        <p><strong>Summary:</strong> Conducted a formal review and improved code quality using industry best practices.</p>
-      </article>
+    <!-- SELF-ASSESSMENT -->
+    <section id="self-assessment" class="mb-5">
+      <h2>Professional Self-Assessment</h2>
+      <p>This ePortfolio reflects my growth from a student to a capable engineer with strong foundations in software design, database systems, and technical communication.</p>
+      <h4>Specializations</h4>
+      <ul>
+        <li>Database Optimization & Query Tuning</li>
+        <li>Cross-language Portability (Java → Python)</li>
+        <li>Full-Stack Engineering</li>
+      </ul>
+      <h4>Skills Demonstrated</h4>
+      <ul>
+        <li><strong>Data Structures:</strong> SQL refactor of C++ logic</li>
+        <li><strong>Engineering:</strong> OOP conversion & enhancements</li>
+        <li><strong>DB Design:</strong> Normalized schema & procedures</li>
+        <li><strong>Communication:</strong> Written and video documentation</li>
+      </ul>
     </section>
   </main>
 
-  <section id="self-assessment">
-  <h2>Professional Self-Assessment</h2>
-  <p>
-    Throughout my time in the Computer Science program at SNHU, I’ve grown from a curious learner to a confident professional equipped with real-world skills in software engineering, database design, and system optimization. This ePortfolio serves as a culmination of that journey—an opportunity to reflect on the growth I’ve achieved and the expertise I now offer.
-  </p>
-  <p>
-    By completing this capstone project and building out my ePortfolio, I’ve been able to showcase and refine key technical skills that directly align with my professional aspirations. From porting object-oriented Java systems to Python for improved readability and maintenance, to transforming manual data structures into scalable SQL schemas, each enhancement highlights a thoughtful approach to building efficient and sustainable systems.
-  </p>
-
-  <h3>Career Alignment & Specialization</h3>
-  <p>
-    My focus in the program—and this ePortfolio—has been on <strong>database optimization, backend architecture, and software performance engineering</strong>. These areas are not only academic interests, but directly support my current role on a database team and my goal of advancing into leadership roles in <strong>database architecture and system performance</strong>.
-  </p>
-  <ul>
-    <li>Query Optimization & Schema Design</li>
-    <li>Cross-language Portability</li>
-    <li>Scalable Backend Architecture</li>
-    <li>Software Engineering Best Practices</li>
-  </ul>
-
-  <h3>Collaboration & Communication</h3>
-  <p>
-    Working on real-world projects and in collaborative environments has taught me how to communicate effectively with both technical and non-technical stakeholders. Whether explaining the logic behind a SQL function or outlining enhancement plans to instructors and peers, I’ve learned how to present ideas clearly and adapt messaging to different audiences.
-  </p>
-  <p>
-    For example, I conducted a video code review to communicate project logic and enhancements effectively. My enhancement documentation explains complex transformations in plain language, such as turning a C++ linked list into a PostgreSQL database.
-  </p>
-
-  <h3>Skills Demonstrated Across the Program</h3>
-  <ul>
-    <li><strong>Data Structures & Algorithms:</strong> Refactored inefficient C++ LinkedList logic into scalable SQL queries.</li>
-    <li><strong>Software Engineering:</strong> Ported Java systems to Python with better structure, input validation, and usability.</li>
-    <li><strong>Database Engineering:</strong> Built a fully normalized PostgreSQL database with triggers, constraints, and stored functions.</li>
-    <li><strong>Security & Integrity:</strong> Applied constraints and validations to ensure data accuracy and system integrity.</li>
-    <li><strong>Team Communication:</strong> Shared code improvements and logic clearly in video format and enhancement writeups.</li>
-  </ul>
-
-  <h3>How My Artifacts Fit Together</h3>
-  <p>
-    This portfolio walks through a complete full-stack perspective:
-  </p>
-  <ul>
-    <li><strong>Software Engineering – Pet Project:</strong> Showcases object-oriented design and feature enhancement (Java to Python).</li>
-    <li><strong>Data Structures – LinkedList Refactor:</strong> Translates logic into a scalable SQL database to support queries and filtering.</li>
-    <li><strong>Databases – SQL Inventory System:</strong> Demonstrates complete backend design with reporting, indexing, and logging.</li>
-    <li><strong>Video Code Review:</strong> Communicates professional enhancement strategies to a technical audience.</li>
-  </ul>
-</section>
-
+  <!-- FOOTER -->
   <footer id="resources">
-    <h3>Project Resources</h3>
-    <ul>
-      <li>📁 <a href="https://github.com/rjheavner1028/rjheavner1028.github.io" target="_blank">Main GitHub Repository</a></li>
-      <li>📁 <a href="https://github.com/rjheavner1028/rjheavner1028.github.io/tree/3f9ce4988f83857b6c0eb10b49e7675349b13ebd/Software%20Engineering%20and%20Design%20-%20Pet%20Project" target="_blank">Software Engineering and Design - Pet Project</a></li>
-      <li>📁 <a href="https://github.com/rjheavner1028/rjheavner1028.github.io/tree/297cfbc27f40afe9fc67e4928862e703b5c87bb8/Algorithms%20and%20Data%20Structures%20-%20LinkedList" target="_blank">Algorithms and Data Structures - LinkedList</a></li>
-      <li>📁 <a href="https://github.com/rjheavner1028/rjheavner1028.github.io/tree/297cfbc27f40afe9fc67e4928862e703b5c87bb8/Databases%20-%20Full%20Database%20Design%20and%20Setup" target="_blank">Databases - Full Database Design and Setup</a></li>
-      <li>📁 <a href="https://github.com/rjheavner1028/rjheavner1028.github.io/tree/main/Video%20Code%20Review" target="_blank">Video Code Review</a></li>
-      <li>🎥 <a href="https://youtu.be/Pk0VGeP-7oE" target="_blank">Video Code Review (YouTube)</a></li>
-    </ul>
-    <p>&copy; 2025 Robert Heavner. All rights reserved.</p>
+    <div class="container text-center">
+      <h3>Project Resources</h3>
+      <ul class="list-unstyled">
+        <li><a href="https://github.com/rjheavner1028/rjheavner1028.github.io" target="_blank">Main GitHub Repository</a></li>
+        <li><a href="https://youtu.be/Pk0VGeP-7oE" target="_blank">Video Code Review (YouTube)</a></li>
+      </ul>
+      <p class="mt-4">&copy; 2025 Robert Heavner. All rights reserved.</p>
+    </div>
   </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
